@@ -37,6 +37,28 @@ def welcome_main_screen():
                 time_clock.tick(FPS)
 
 
+def get_Random_Pipes():
+    pass
+
+
+def main_gameplay():
+    score = 0
+    p_x = int(screen_width/5)
+    p_y = int(screen_width/2)
+    b_x = 0
+
+    n_pip1 = get_Random_Pipes()
+    n_pip2 = get_Random_Pipes()
+
+    up_pips = [
+        {'x':screen_width+200,'y':n_pip1[0]['y']},
+        {'x':screen_width+200+(screen_width/2),'y':n_pip2[0]['y']},
+    ]
+
+    low_pips = [
+        {'x':screen_width+200,'y':n_pip1[1]['y']},
+        {'x':screen_width+200+(screen_width/2),'y':n_pip2[1]['y']},
+    ]
 
 
 
