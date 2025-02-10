@@ -36,6 +36,10 @@ if __name__=="__main__":
     game_image['pipe'] = (pygame.transform.rotate(pygame.image.load(pipe_image).convert_alpha(),180),
                           pygame.image.load(pipe_image).convert_alpha())
 
-
+    game_audio_sound['die'] = pygame.mixer.Sound('sounds/die.wav')
+    game_audio_sound['hit'] = pygame.mixer.Sound('sounds/hit.wav')
+    game_audio_sound['point'] = pygame.mixer.Sound('sounds/point.wav')
+    game_audio_sound['swoosh'] = pygame.mixer.Sound('sounds/swoosh.wav')
+    game_audio_sound['wing'] = pygame.mixer.Sound('sounds/wing.wav')
 
 
