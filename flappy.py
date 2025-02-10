@@ -118,6 +118,20 @@ def main_gameplay():
                 window.blit(game_image['pip'][0], (pip_upper['x'],pip_upper['y']))
                 window.blit(game_image['pip'][1], (pip_upper['x'],pip_upper['y']))
 
+            window.blit(game_image['base'],(b_x,play_area))
+            window.blit(game_image['player'],(p_x,p_y))
+            d = [int(x) for x in list(str(score))]
+            w=0
+            for digit in d:
+                w+=game_image['numbers'][digit].get_width()
+            Xoffset = (screen_width-w)/2
+            for digit in d:
+                window.blit(game_image['numbers'][digit],(Xoffset,screen_height*0.12))
+                Xoffset += game_image['numbers'][digit].get_width()
+
+            pygame.display.update()
+            time_clock.tick(FPS)
+
 
 
 
