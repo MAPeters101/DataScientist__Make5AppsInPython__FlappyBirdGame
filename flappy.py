@@ -60,7 +60,25 @@ def main_gameplay():
         {'x':screen_width+200+(screen_width/2),'y':n_pip2[1]['y']},
     ]
 
+    pip_Vx = -4
+    p_vx = -9
+    p_mvx = 10
+    p_mvy = -8
+    p_accuracy = 1
 
+    p_flap_accuracy = -8
+    p_flap = False
+
+    while True:
+        for event in pygame.event.get():
+            if event.type==QUIT or (event.type==KEYDOWN and event.key==K_ESCAPE):
+                pygame.quit()
+                sys.exit()
+            if event.type==KEYDOWN and (event.key==K_SPACE or event.key==K_UP):
+                if p_y > 0:
+                    p_vx = p_flap_accuracy
+                    p_flap = True
+                    game_audio_sound['wing'].play()
 
 
 
