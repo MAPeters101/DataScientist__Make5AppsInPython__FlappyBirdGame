@@ -100,6 +100,25 @@ def main_gameplay():
             p_height = game_image['player'].get_height()
             p_y = p_y + min(p_vx,play_area-p_y-p_height)
 
+            for pip_upper,pip_lower in zip(up_pips,low_pips):
+                pip_upper['x'] += pip_Vx
+                pip_lower['x'] += pip_Vx
+
+            if 0<up_pips[0]['x'] < 5:
+                new_pip = get_Random_Pipes()
+                up_pips.append(new_pip[0])
+                low_pips.append(new_pip[1])
+
+            if up_pips[0]['x'] < -game_image['pipe'][0].get_width():
+                up_pips.pop(0)
+                low_pips.pop(0)
+
+            window.blit(game_image['background'],(0,0))
+            for pip_upper,pip_lower in zip(up_pips,low_pips):
+                window.blit(game_image['pip'][0], (pip_upper['x'],pip_upper['y']))
+                window.blit(game_image['pip'][1], (pip_upper['x'],pip_upper['y']))
+
+
 
 
 
