@@ -33,6 +33,8 @@ def welcome_main_screen():
                 window.blit(game_image['player'],(p_x,p_y))
                 window.blit(game_image['message'],(msgx,msgy))
                 window.blit(game_image['base'],(b_x,play_area))
+                pygame.display.update()
+                time_clock.tick(FPS)
 
 
 
