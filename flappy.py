@@ -42,4 +42,10 @@ if __name__=="__main__":
     game_audio_sound['swoosh'] = pygame.mixer.Sound('sounds/swoosh.wav')
     game_audio_sound['wing'] = pygame.mixer.Sound('sounds/wing.wav')
 
+    game_image['background'] = pygame.image.load(background_image).convert()
+    game_image['player'] = pygame.image.load(player).convert()
+
+    while True:
+        welcome_main_screen()
+        main_gameplay()
 
