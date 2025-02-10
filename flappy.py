@@ -132,6 +132,16 @@ def main_gameplay():
             pygame.display.update()
             time_clock.tick(FPS)
 
+def is_Colliding(p_x,p_y,up_pipes,low_pipes):
+    if p_y >play_area -25 or p_y < 0:
+        game_audio_sound['hit'].play()
+        return True
+
+    for pipe in up_pipes:
+        pip_h = game_image['pipe'][0].get_height()
+        if (p_y < pip_h + pipe['y'] and abs(p_x - pipe['x']) < game_image['pipe'][0].get_width()):
+            game_audio_sound['hit'].play()
+            return True
 
 
 
