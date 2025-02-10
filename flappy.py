@@ -14,6 +14,32 @@ player = 'images/bird.png'
 background_image = 'images/background.png'
 pipe_image = 'images/pipe.png'
 
+def welcome_main_screen():
+    p_x = int(screen_width/5)
+    p_y = int(screen_height - game_image['player'].get_height()/2)
+    msgx = int((screen_width-game_image['message'].get_width())/2)
+    msgy = int(screen_height * 0.13)
+    b_x = 0
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == QUIT or (event.type == KEYDOWN and event.key==K_ESCAPE):
+                pygame.quit()
+                sys.exit()
+            elif event.type == KEYDOWN and (event.key==K_SPACE or event.key==K_UP):
+                return
+            else:
+                window.blit(game_image['background'],(0,0))
+                window.blit(game_image['player'],(p_x,p_y))
+                window.blit(game_image['message'],(msgx,msgy))
+                window.blit(game_image['base'],(b_x,play_area))
+
+
+
+
+
+
+
 if __name__=="__main__":
     pygame.init()
     time_clock = pygame.time.Clock()
