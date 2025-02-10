@@ -17,8 +17,8 @@ pipe_image = 'images/pipe.png'
 def welcome_main_screen():
     p_x = int(screen_width/5)
     p_y = int(screen_height - game_image['player'].get_height()/2)
-    msgx = int((screen_width-game_image['message'].get_width())/2)
-    msgy = int(screen_height * 0.13)
+    ##msgx = int((screen_width-game_image['message'].get_width())/2)
+    ##msgy = int(screen_height * 0.13)
     b_x = 0
 
     while True:
@@ -31,7 +31,7 @@ def welcome_main_screen():
             else:
                 window.blit(game_image['background'],(0,0))
                 window.blit(game_image['player'],(p_x,p_y))
-                window.blit(game_image['message'],(msgx,msgy))
+                ##window.blit(game_image['message'],(msgx,msgy))
                 window.blit(game_image['base'],(b_x,play_area))
                 pygame.display.update()
                 time_clock.tick(FPS)
@@ -59,7 +59,7 @@ if __name__=="__main__":
         pygame.image.load('images/9.png').convert_alpha(),
     )
 
-    #game_image['message'] = pygame.image.load('images/message.png').convert_alpha()
+    ##game_image['message'] = pygame.image.load('images/message.png').convert_alpha()
     game_image['base'] = pygame.image.load('images/base.png').convert_alpha()
     game_image['pipe'] = (pygame.transform.rotate(pygame.image.load(pipe_image).convert_alpha(),180),
                           pygame.image.load(pipe_image).convert_alpha())
