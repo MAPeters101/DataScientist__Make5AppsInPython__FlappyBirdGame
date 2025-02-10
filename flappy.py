@@ -80,6 +80,27 @@ def main_gameplay():
                     p_flap = True
                     game_audio_sound['wing'].play()
 
+            cr_test = is_Colliding(p_x,p_y,up_pips,low_pips)
+            if cr_test:
+                return
+
+            p_middle_positions = p_x + game_image['player'].get_width()/2
+            for pipe in up_pips:
+                pip_middle_positions = pipe['x']+game_image['pipe'][0].get_width()/2
+                if pip_middle_positions <= p_middle_positions < pip_middle_positions + 4:
+                    score+=1
+                    print(f"Your score is {score}")
+                    game_audio_sound['point'].play()
+
+            if p_vx < p_mvx and not p_flap:
+                p_vx += p_accuracy
+
+            if p_flap:
+                p_flap = False
+            p_height = game_image['player'].get_height()
+            p_y = p_y + min(p_vx,play_area-p_y-p_height)
+
+
 
 
 if __name__=="__main__":
