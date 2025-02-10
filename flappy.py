@@ -143,6 +143,13 @@ def is_Colliding(p_x,p_y,up_pipes,low_pipes):
             game_audio_sound['hit'].play()
             return True
 
+    for pipe in low_pipes:
+        if (p_y + game_image['player'].get_height() > pipe['y'] and abs(p_x-pipe['x'])<game_image['pipe'][0].get_width()):
+            game_audio_sound['hit'].play()
+            return True
+
+    return False
+
 
 
 
