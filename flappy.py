@@ -151,7 +151,7 @@ def is_Colliding(p_x,p_y,up_pipes,low_pipes):
 def get_Random_Pipes():
     pip_h = game_image['pipe'][0].get_height()
     off_s = screen_height/3
-    yes2 = off_s +random.randrange(0,int(screen_height-game_image['base'].get_height()-1.2*off_s))
+    yes2 = off_s + random.randrange(0,int(screen_height-game_image['base'].get_height()-1.2*off_s))
     pipeX = screen_width + 10
     y1 = pip_h - yes2 + off_s
     pipe=[
