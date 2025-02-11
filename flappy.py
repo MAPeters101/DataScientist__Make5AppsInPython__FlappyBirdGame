@@ -111,8 +111,8 @@ def main_gameplay():
 
             window.blit(game_image['background'],(0,0))
             for pip_upper,pip_lower in zip(up_pips,low_pips):
-                window.blit(game_image['pip'][0], (pip_upper['x'],pip_upper['y']))
-                window.blit(game_image['pip'][1], (pip_upper['x'],pip_upper['y']))
+                window.blit(game_image['pipe'][0], (pip_upper['x'],pip_upper['y']))
+                window.blit(game_image['pipe'][1], (pip_upper['x'],pip_upper['y']))
 
             window.blit(game_image['base'],(b_x,play_area))
             window.blit(game_image['player'],(p_x,p_y))
@@ -120,7 +120,9 @@ def main_gameplay():
             w=0
             for digit in d:
                 w+=game_image['numbers'][digit].get_width()
+
             Xoffset = (screen_width-w)/2
+
             for digit in d:
                 window.blit(game_image['numbers'][digit],(Xoffset,screen_height*0.12))
                 Xoffset += game_image['numbers'][digit].get_width()
@@ -159,10 +161,6 @@ def get_Random_Pipes():
     return pipe
 
 
-
-
-
-
 if __name__=="__main__":
     pygame.init()
     time_clock = pygame.time.Clock()
@@ -192,7 +190,7 @@ if __name__=="__main__":
     game_audio_sound['wing'] = pygame.mixer.Sound('sounds/wing.wav')
 
     game_image['background'] = pygame.image.load(background_image).convert()
-    game_image['player'] = pygame.image.load(player).convert()
+    game_image['player'] = pygame.image.load(player).convert_alpha()
 
     while True:
         welcome_main_screen()
