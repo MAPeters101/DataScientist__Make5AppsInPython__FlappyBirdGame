@@ -131,7 +131,7 @@ def main_gameplay():
             time_clock.tick(FPS)
 
 def is_Colliding(p_x,p_y,up_pipes,low_pipes):
-    if p_y >play_area -25 or p_y < 0:
+    if p_y > play_area -25 or p_y < 0:
         game_audio_sound['hit'].play()
         return True
 
@@ -142,7 +142,7 @@ def is_Colliding(p_x,p_y,up_pipes,low_pipes):
             return True
 
     for pipe in low_pipes:
-        if (p_y + game_image['player'].get_height() > pipe['y'] and abs(p_x-pipe['x'])<game_image['pipe'][0].get_width()):
+        if (p_y + game_image['player'].get_height() > pipe['y']) and abs(p_x-pipe['x'])<game_image['pipe'][0].get_width():
             game_audio_sound['hit'].play()
             return True
 
