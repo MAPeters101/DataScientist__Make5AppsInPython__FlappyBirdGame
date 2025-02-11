@@ -37,10 +37,6 @@ def welcome_main_screen():
                 time_clock.tick(FPS)
 
 
-def get_Random_Pipes():
-    pass
-
-
 def main_gameplay():
     score = 0
     p_x = int(screen_width/5)
@@ -149,6 +145,20 @@ def is_Colliding(p_x,p_y,up_pipes,low_pipes):
             return True
 
     return False
+
+def get_Random_Pipes():
+    pip_h = game_image['pipe'][0].get_height()
+    off_s = screen_height/3
+    yes2 = off_s +random.randrange(0,int(screen_height-game_image['base'].get_height()-1.2*off_s))
+    pipeX = screen_width + 10
+    y1 = pip_h - yes2 + off_s
+    pipe=[
+        {'x':pipeX,'y':-y1},
+        {'x':pipeX,'y':yes2}
+    ]
+    return pipe
+
+
 
 
 
